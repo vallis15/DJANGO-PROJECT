@@ -1,0 +1,71 @@
+body {
+    background-image: url('/static/abstract-digital-grid-vector-black-background_53876-111550.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bolder;
+    font-family: 'Trebuchet', sans-serif;
+    color: #1d63a1;
+    margin-top: 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5), 2px 2px 2px rgba(0, 0, 0, 0.5), 3px 3px 3px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid #1d73a1;
+    transform: perspective(100px) rotateX(5deg);
+}
+
+.tile {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.tile a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    height: 100%;
+}
+
+.weather-tile {
+    background-image: url('/static/Apple-Weather-app .jpg');
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    transform: perspective(1000px) rotateX(50deg);
+    transition: transform 0.5s ease;
+}
+
+.weather-tile:hover {
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+.network-tile {
+    background-image: url('/static/network_logo.jpeg');
+    background-size: contain;
+    background-position: middle center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    transform: perspective(1000px) rotateX(50deg);
+    transition: transform 0.5s ease;
+}
+
+.network-tile:hover {
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+.home-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+}

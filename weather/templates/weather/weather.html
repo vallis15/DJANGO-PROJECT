@@ -1,0 +1,99 @@
+<!-- weather/weather.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            background-image: url('{% static "abstract-digital-grid-vector-black-background_53876-111550.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #1d63a1;
+        }
+
+        h1 {
+    text-align: center;
+    font-size: 32px; 
+    font-weight: bolder; 
+    font-family: 'Trebuchet', sans-serif;
+    color: #1d63a1; 
+    margin-top: 10px; 
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid #1d73a1;
+    
+
+}
+
+        .home-icon {
+            position: absolute;
+            top: 10px; 
+            left: 10px;
+            width: 30px;  
+            height: 30px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #1d63a1;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1d63a1;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+       
+        .globe-image {
+            width: 300px; 
+            height: auto; 
+            display: block;
+            margin: 20px auto; 
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'home' %}" title="Home button">
+        <img class="home-icon" src="{% static 'blue-home-page-icon-png-16.png' %}" alt="home">
+    </a>
+    <h1>Weather App</h1>
+    <form method="post" action="{% url 'weather' %}">
+        {% csrf_token %}
+        <label for="city">Enter city:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if city %}
+        <p>Current temperature in {{ city.name }}: {{ temperature }}°C</p>
+        <img class="globe-image" src="{% static 'weather.png' %}" alt="Globe Image">
+    {% endif %}
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
